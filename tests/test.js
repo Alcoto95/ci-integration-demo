@@ -12,7 +12,8 @@ test('Text typing basics', async t => {
         .typeText(page.nameInput, 'Peter')                      // Type name
         .typeText(page.nameInput, 'Paker', { replace: true })   // Replace with last name
         .typeText(page.nameInput, 'r', { caretPos: 2 })         // Correct last name
-        .expect(page.nameInput.value).eql('Parker');            // Check result
+        .expect(page.nameInput.value).eql('Parker')             // Check result
+    console.log('Test Text typing basics Passed!!!!!!!!!!!')
 });
 
 
@@ -20,7 +21,8 @@ test('Click an array of labels and then check their states', async t => {
     for (const feature of page.featureList) {
         await t
             .click(feature.label)
-            .expect(feature.checkbox.checked).ok();
+            .expect(feature.checkbox.checked).ok()
+        console.log('Test Click an array of labels... Passed!!!!!!!!!!!')
     }
 });
 
@@ -32,7 +34,8 @@ test('Dealing with text using keyboard', async t => {
         .pressKey('backspace')                              // Erase a character
         .expect(page.nameInput.value).eql('Pete Parker')    // Check result
         .pressKey('home right . delete delete delete')      // Pick even shorter form for name
-        .expect(page.nameInput.value).eql('P. Parker');     // Check result
+        .expect(page.nameInput.value).eql('P. Parker')      // Check result
+    console.log('Test Dealing with text... Passed!!!!!!!!!!!')
 });
 
 
@@ -42,7 +45,8 @@ test('Moving the slider', async t => {
     await t
         .click(page.triedTestCafeCheckbox)
         .dragToElement(page.slider.handle, page.slider.tick.withText('9'))
-        .expect(page.slider.handle.offsetLeft).gt(initialOffset);
+        .expect(page.slider.handle.offsetLeft).gt(initialOffset)
+    console.log('Test Moving the slider... Passed!!!!!!!!!!!')
 });
 
 
